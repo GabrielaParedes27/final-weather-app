@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import "./Weather.css";
 import axios from "axios";
+import CurrentDate from "./CurrentDate";
 
 
 export default function Weather(props){
@@ -10,13 +11,14 @@ export default function Weather(props){
     function handleResponse(response) {
     setWeatherData({
       ready: true,
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       precipitation: response.data.clouds.all,
       description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: response.data.wind.speed,
       city: response.data.name,
+      date: new Date(response.data.dt * 1000),
       feels: Math.round(response.data.main.feels_like)
     });
   }
@@ -75,7 +77,7 @@ export default function Weather(props){
           </div>
           <div className="col-6">
           <div className="details-info">
-        <h3 id="date">Friday, March 26 2021 | 21:24</h3>
+        <CurrentDate date={weatherData.date} />
         <h5 id="description">{weatherData.description}</h5>
         <ul>
           <i className="fas fa-cloud-showers-heavy"></i>
