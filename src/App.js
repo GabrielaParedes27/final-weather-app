@@ -1,10 +1,10 @@
 import './App.css';
+import Weather from "./Weather";
 
 export default function App() {
   return (
     <div className="App">
-      <div className="container">
-     <h1>Weather app</h1> 
+      <Weather defaultCity="New York" />
      <footer>
        This project was coded by{" "}
        <a href="www.linkedin.com/in/gabriela-paredes-314333180" target="_blank">
@@ -15,7 +15,6 @@ export default function App() {
          open-sourced on GitHub
        </a>
      </footer>
-     </div>
     </div>
   );
 }
