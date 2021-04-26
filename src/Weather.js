@@ -16,8 +16,8 @@ export default function Weather(props){
       precipitation: response.data.clouds.all,
       description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      wind: response.data.wind.speed,
-      city: response.data.name,
+      wind: Math.round(response.data.wind.speed),
+      city: response.data.name + ", " + response.data.sys.country,
       date: new Date(response.data.dt * 1000),
       feels: Math.round(response.data.main.feels_like)
     });
@@ -85,7 +85,7 @@ export default function Weather(props){
           <i className="fas fa-tint"></i>
           <li id="humidity">Humidity: {weatherData.humidity}%</li>
           <i className="fas fa-wind"></i>
-          <li id="wind">Wind:{weatherData.wind} km/hr</li>
+          <li id="wind">Wind: {weatherData.wind} km/hr</li>
           <i className="fas fa-temperature-high"></i>
           <li id="feels-like">Feels like: {weatherData.feels} °C</li>
         </ul>
