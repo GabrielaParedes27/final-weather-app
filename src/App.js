@@ -7,11 +7,11 @@ export default function App() {
       <Weather defaultCity="New York" />
      <footer>
        This project was coded by{" "}
-       <a href="www.linkedin.com/in/gabriela-paredes-314333180" target="_blank">
+       <a href="https://www.linkedin.com/in/gabriela-paredes-314333180" target="blank">
          Gabriela Paredes
        </a>{" "}
        and is{" "}
-       <a href="https://github.com/GabrielaParedes27/final-weather-app.git" target="_blank">
+       <a href="https://github.com/GabrielaParedes27/final-weather-app.git" target="blank">
          open-sourced on GitHub
        </a>
      </footer>

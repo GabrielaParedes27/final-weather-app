@@ -67,13 +67,9 @@ export default function Weather(props){
               id="icon"
             />
             <WeatherTemp celsius={weatherData.temperature} />
-            
-            <div className="location-icon">
-              <i className="fas fa-map-marker-alt" id="location"></i>
               <h2 className="location" id="city">
                 {weatherData.city}
               </h2>
-            </div>
           </div>
           </div>
           <div className="col-6">
@@ -81,13 +77,9 @@ export default function Weather(props){
         <CurrentDate date={weatherData.date} />
         <h5 id="description">{weatherData.description}</h5>
         <ul>
-          <i className="fas fa-cloud-showers-heavy"></i>
           <li id="precipitation">Precipitation: {weatherData.precipitation} %</li>
-          <i className="fas fa-tint"></i>
           <li id="humidity">Humidity: {weatherData.humidity}%</li>
-          <i className="fas fa-wind"></i>
           <li id="wind">Wind: {weatherData.wind} km/hr</li>
-          <i className="fas fa-temperature-high"></i>
           <li id="feels-like">Feels like: {weatherData.feels} °C</li>
         </ul>
       </div>
