@@ -85,18 +85,6 @@ footer {
   width: 100px;
 }
 
-.ppal-temp strong {
-  font-size: 48px;
-  font-weight: 400;
-  color: #07689f;
-}
-
-.ppal-temp small {
-  position: relative;
-  font-size: 16px;
-  top: -22px;
-}
-
 .details-info {
   margin: 5px;
   padding: 20px;
