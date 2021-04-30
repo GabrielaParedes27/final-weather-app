@@ -3,7 +3,7 @@ import "./Weather.css";
 import axios from "axios";
 import CurrentDate from "./CurrentDate";
 import WeatherTemp from "./WeatherTemp";
-
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props){
     const [weatherData, setWeatherData] = useState({ ready: false });
@@ -20,6 +20,7 @@ export default function Weather(props){
       wind: Math.round(response.data.wind.speed),
       city: response.data.name + ", " + response.data.sys.country,
       date: new Date(response.data.dt * 1000),
+      coordinates: response.data.coord,
       feels: Math.round(response.data.main.feels_like)
     });
   }
@@ -85,6 +86,7 @@ export default function Weather(props){
       </div>
       </div>
       </div>
+        <WeatherForecast coordinates={weatherData.coordinates} />
             </div>
       </div>
     );
