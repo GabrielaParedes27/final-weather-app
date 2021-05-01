@@ -39,7 +39,9 @@ let year = props.date.getFullYear();
   }
   return (
     <div>
-      {day} {month} {dayNumber} {year} | {hours}:{minutes}
+      <h5>
+      {day}, {month} {dayNumber} {year} | {hours}:{minutes}
+      </h5>
     </div>
   );
 }

@@ -34,6 +34,19 @@ export default function Weather(props){
     setCity(event.target.value);
   }
 
+  function currentPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    const apiKey = "816a63a33af440332c05784e3d9896ea";
+    let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(geoUrl).then(handleResponse);
+  }
+
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(currentPosition);
+  }
+
   function search() {
     const apiKey = "816a63a33af440332c05784e3d9896ea";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -54,7 +67,7 @@ export default function Weather(props){
             onChange= {handleCityChange}
           />
           <button id="search-button">Search</button>
-          <button id="current-button">Current</button>
+          <button id="current-button" onClick={getCurrentLocation} >Current</button>
            
         </div>
       </form>
@@ -78,10 +91,10 @@ export default function Weather(props){
         <CurrentDate date={weatherData.date} />
         <h5 id="description">{weatherData.description}</h5>
         <ul>
-          <li id="precipitation">Precipitation: {weatherData.precipitation} %</li>
-          <li id="humidity">Humidity: {weatherData.humidity}%</li>
-          <li id="wind">Wind: {weatherData.wind} km/hr</li>
-          <li id="feels-like">Feels like: {weatherData.feels} °C</li>
+          <li id="precipitation"> Precipitation: <strong>{weatherData.precipitation}%</strong> </li>
+          <li id="humidity">Humidity: <strong>{weatherData.humidity}%</strong> </li>
+          <li id="wind">Wind: <strong>{weatherData.wind}km/hr</strong> </li>
+          <li id="feels-like">Feels like: <strong>{weatherData.feels}°C</strong> </li>
         </ul>
       </div>
       </div>
